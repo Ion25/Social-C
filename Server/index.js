@@ -1,14 +1,15 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
+const userRoute = require("./Routes/userRoute")
 
 const app = express();
 require("dotenv").config()
 
 app.use(express.json());
 app.use(cors());
-
-
+app.use("/api/users", userRoute)
+/* CRUD */
 app.get("/", (req, res) => {
     res.send("Bienvenido a Social-C..");
 });
